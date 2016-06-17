@@ -7,7 +7,7 @@ My [HammerSpoon](http://hammerspoon.org) templates.
 Download and install [HammerSpoon](https://github.com/Hammerspoon/hammerspoon/releases/latest)
 
 ``` bash
-$ git clone git@github.com:jkamenik/.hammerspoon.git
+$ git clone git@github.com:jkamenik/.hammerspoon.git ~/.hammerspoon
 ```
 
 ## Use
