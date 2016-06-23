@@ -19,13 +19,14 @@ function layout_message_apps()
 
    if screens == 1 then
       -- Only one screen so split them full width but 1/2 height
+      print("only 1 screen")
       layout = {
          -- HipChat and Slack together, HipChat has a min size >half
          {"HipChat",  nil, screen, {x=0,y=0,  w=full,h=half},   nil, nil},
          {"Slack",    nil, screen, {x=0,y=.52,w=full,h=0.48},  nil, nil},
          -- Messages and WhatsApp together
-         {"Messages", nil, screen, {x=.5,y=y,w=width,h=height}, nil, nil},
-         {"WhatsApp", nil, screen, {x=0, y=y,w=width,h=height},  nil, nil}
+         {"Messages", nil, screen, {x=0,y=0,  w=full,h=half}, nil, nil},
+         {"WhatsApp", nil, screen, {x=0,y=mid,w=full,h=half},  nil, nil}
       }
    else
       -- Many screens, one should be large enough to show all
