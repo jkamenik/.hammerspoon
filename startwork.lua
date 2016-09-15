@@ -15,6 +15,7 @@ function start_work()
 
    open("https://outlook.office365.com/owa/?realm=srcinc.com#path=/mail")
    open("https://fourvsystems.atlassian.net/secure/Dashboard.jspa")
+   open("http://sensu.fourvdev.com:3000")
 end
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "S", start_work)
