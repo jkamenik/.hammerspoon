@@ -6,7 +6,7 @@ function start_work()
    local start = hs.application.launchOrFocus
 
    start("Messages")
-   start("WhatsApp")
+  --  start("WhatsApp")
    start("HipChat")
    start("Slack")
    start("Google Chrome")
