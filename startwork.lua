@@ -7,6 +7,7 @@ function start_work()
   
   start("Messages")
   --  start("WhatsApp")
+  start("Microsoft Outlook")
   start("HipChat")
   start("Slack")
   start("Google Chrome")
@@ -14,9 +15,9 @@ function start_work()
   -- start("Atom")
   -- start("iTerm")
   
-  open("https://outlook.office365.com/owa/?realm=srcinc.com#path=/mail")
+  --open("https://outlook.office365.com/owa/?realm=srcinc.com#path=/mail")
   open("https://fourvsystems.atlassian.net/secure/Dashboard.jspa")
-  open("http://sensu.fourvdev.com:3000")
+  -- open("http://sensu.fourvdev.com:3000")
 end
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "S", start_work)
