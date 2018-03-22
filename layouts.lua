@@ -26,7 +26,9 @@ function layout_message_apps()
          {"Slack",    nil, screen, {x=0,y=.52,w=full,h=0.48},  nil, nil},
          -- Messages and Things together
          {"Messages", nil, screen, {x=0,y=0,  w=full,h=half}, nil, nil},
-         {"Things", nil, screen, {x=0,y=mid,w=full,h=half},  nil, nil}
+         {"Things", nil, screen, {x=0,y=mid,w=full,h=half},  nil, nil},
+         -- MS Teams should sit over Slack
+         {"Microsoft Teams", nil, screen, {x=0,y=.52,w=full,h=0.48}, nil, nil}
       }
    else
       -- Many screens, one should be large enough to show all
@@ -36,7 +38,9 @@ function layout_message_apps()
          {"Slack",    nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
          -- Messages and Things at the bottom
          {"Messages", nil, screen, {x=mid,y=mid,w=half,h=half}, nil, nil},
-         {"Things", nil, screen, {x=0,  y=mid,w=half,h=half},  nil, nil}
+         {"Things", nil, screen, {x=0,  y=mid,w=half,h=half},  nil, nil},
+         -- MS Teams should sit over Slack
+         {"Microsoft Teams", nil, screen, {x=mid,y=0,w=half,h=half}, nil, nil}
       }
 
    end
