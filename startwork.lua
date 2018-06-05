@@ -12,7 +12,7 @@ function start_work()
   -- start("HipChat")
   start("Slack")
   start("Google Chrome")
-  start("Things")
+  start("Things3")
   -- start("Atom")
   -- start("iTerm")
   
