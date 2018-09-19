@@ -16,9 +16,8 @@ function start_work()
   -- start("Atom")
   -- start("iTerm")
   
-  --open("https://outlook.office365.com/owa/?realm=srcinc.com#path=/mail")
-  open("https://fourvsystems.atlassian.net/secure/Dashboard.jspa")
-  -- open("http://sensu.fourvdev.com:3000")
+  -- Jira to CRPI with "DevOps" filter selected.
+  open("https://opaqnetworks.atlassian.net/secure/RapidBoard.jspa?rapidView=35&projectKey=CRPI&view=detail&quickFilter=99")
 end
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "S", start_work)
