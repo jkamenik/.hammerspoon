@@ -21,7 +21,13 @@ function start_work()
   -- start("iTerm")
   
   -- Jira to CRPI with "DevOps" filter selected.  Double escape the '\' so that '&' is escaped when sending to the terminal. 
-  open("https://opaqnetworks.atlassian.net/secure/RapidBoard.jspa?rapidView=35\\&quickFilter=99")
+  -- open("https://opaqnetworks.atlassian.net/secure/RapidBoard.jspa?rapidView=35\\&quickFilter=99")
+
+  -- Jira DevOps Kanban baord spanning multiple projects.
+  open("https://opaqnetworks.atlassian.net/secure/RapidBoard.jspa?rapidView=49\\&selectedIssue=CRPI-7532\\&quickFilter=134")
+  
+  -- Jira DSO main board.
+  open("https://opaqnetworks.atlassian.net/secure/RapidBoard.jspa?rapidView=56")
 end
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "S", start_work)
