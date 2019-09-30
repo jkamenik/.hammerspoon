@@ -35,8 +35,8 @@ function layout_message_apps()
          {"Microsoft Outlook",  nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
          {"Slack",    nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
          -- Messages and Things at the bottom
-         {"Messages", nil, screen, {x=mid,y=mid,w=half,h=half}, nil, nil},
-         {"Things", nil, screen, {x=0,  y=mid,w=half,h=half},  nil, nil},
+         {"Messages", nil, screen, {x=0,y=mid,w=half,h=half}, nil, nil},
+         {"Things", nil, screen, {x=mid,y=mid,w=half,h=half},  nil, nil},
       }
 
    end
