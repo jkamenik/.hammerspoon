@@ -1,5 +1,3 @@
-menu:setTitle('X')
-
 function tablelength(T)
    local count = 0
    for _ in pairs(T) do count = count + 1 end
@@ -16,27 +14,27 @@ function layout_message_apps()
    local screens = tablelength(hs.screen.allScreens())
    local screen  = hs.screen.mainScreen() -- the one with the mouse
    local layout  = {}
-   
+
    if screens == 1 then
       -- Only one screen so split them full width but 1/2 height
       print("only 1 screen")
       layout = {
          -- Outlook and Slack together, HipChat has a min size >half
-         {"Microsoft Outlook",  nil, screen, {x=0,y=0,  w=full,h=half},   nil, nil},
-         {"Slack",    nil, screen, {x=0,y=.52,w=full,h=0.48},  nil, nil},
+         {globals.apps.mail,  nil, screen, {x=0,y=0,  w=full,h=half},   nil, nil},
+         {globals.apps.messenger.work,    nil, screen, {x=0,y=.52,w=full,h=0.48},  nil, nil},
          -- Messages and Things together
-         {"Messages", nil, screen, {x=0,y=0,  w=full,h=half}, nil, nil},
-         {"Things", nil, screen, {x=0,y=mid,w=full,h=half},  nil, nil},
+         {globals.apps.messenger.personal, nil, screen, {x=0,y=0,  w=full,h=half}, nil, nil},
+         {globals.apps.todo.running_name, nil, screen, {x=0,y=mid,w=full,h=half},  nil, nil},
       }
    else
       -- Many screens, one should be large enough to show all
       layout = {
          -- HipChat and Slack at the top
-         {"Microsoft Outlook",  nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
-         {"Slack",    nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
+         {globals.apps.mail,  nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
+         {globals.apps.messenger.work,    nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
          -- Messages and Things at the bottom
-         {"Messages", nil, screen, {x=0,y=mid,w=half,h=half}, nil, nil},
-         {"Things", nil, screen, {x=mid,y=mid,w=half,h=half},  nil, nil},
+         {globals.apps.messenger.personal, nil, screen, {x=0,y=mid,w=half,h=half}, nil, nil},
+         {globals.apps.todo.running_name, nil, screen, {x=mid,y=mid,w=half,h=half},  nil, nil},
       }
 
    end

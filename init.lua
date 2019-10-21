@@ -15,6 +15,7 @@ hs.pathwatcher.new(os.getenv("HOME") .. "/.hammerspoon/", reloadConfig):start()
 menu       = hs.menubar.new()
 menuItems = {}
 
+globals   = require("globals")
 local layouts   = require("layouts")
 local startwork = require("startwork")
 
