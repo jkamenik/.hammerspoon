@@ -54,7 +54,7 @@ function layout_work_apps()
 end
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", layout_message_apps)
-table.insert(menuItems, {title = "Layout Messaging Apps\t\tcmd+alt+ctrl+L", fn = layout_message_apps })
+table.insert(menuItems, {title = "Layout Messaging Apps\t\t⌘⌥⌃L", fn = layout_message_apps })
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "W", layout_work_apps)
-table.insert(menuItems, {title = "Layout Works Apps\t\t\tcmd+alt+ctrl+W", fn = layout_work_apps })
+table.insert(menuItems, {title = "Layout Works Apps\t\t\t⌘⌥⌃W", fn = layout_work_apps })
