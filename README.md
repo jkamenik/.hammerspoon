@@ -12,5 +12,5 @@ $ git clone git@github.com:jkamenik/.hammerspoon.git ~/.hammerspoon
 
 ## Use
 
-Start HammerSpoon.  This will place an "X" menu bar icon with all the
+Start HammerSpoon.  This will place an "⚒" menu bar icon with all the
 commands listed.
