@@ -1,6 +1,6 @@
 local logger = hs.logger.new("startwork",'info')
 
-local humanTime = "11:00:00"
+local humanTime = "10:50:00"
 local earliest  = hs.timer.seconds(humanTime)
 
 function open(args)
@@ -9,27 +9,41 @@ function open(args)
   hs.execute(command)
 end
 
+function clearTimers()
+  -- Clean any older timers
+  if globals.timers.startWork then
+    printf("Stopping startWork timer: %s",globals.timers.startWork)
+    globals.timers.startWork:stop()
+  end
+
+  if globals.timers.startWorkMenu then
+    print("Stopping startWorkMenu timer, %s", globals.timers.startWorkMenu)
+    globals.timers.startWorkMenu:stop()
+  end
+end
+
 -- The following are apps that, if started with everything else cause
 -- distraction
 function start_delayed_apps()
   print("-- starting delayed apps --")
   local start = hs.application.launchOrFocus
 
-  -- Clean any older timers
-  if globals.timers.startWork then
-    print("Stopping existing timer")
-    globals.timers.startWork:stop()
-  end
+  clearTimers()
 
   start(globals.apps.mail)
 
   remove_delay_menu()
 end
 
+local delayedAppsMenuTitleFormat = "Start Delayed Apps Now (will start in %ds)"
 local delayedAppsMenu = {
-  title = "Start Delayed Apps Now (will start at "..humanTime..")",
+  title = "placeholder",
   fn    = start_delayed_apps
 }
+function delayedAppsMenu:updateTitle(s)
+  self.title = string.format("Start Delayed Apps Now (%ds remain until %s)", s, humanTime)
+end
+
 function remove_delay_menu()
   printf("Delay menu item %s", delayedAppsMenu)
   for k, v in pairs(menuItems) do
@@ -39,6 +53,14 @@ function remove_delay_menu()
       table.remove(menuItems,k)
     end
   end
+  menu:setMenu(menuItems)
+end
+
+function calculateCountdown()
+  print("menu time function")
+  local currentTime = hs.timer.localTime()
+
+  delayedAppsMenu:updateTitle(earliest - currentTime)
   menu:setMenu(menuItems)
 end
 
@@ -66,11 +88,7 @@ function start_work()
   print("--- Delay logic ---")
   local currentTime = hs.timer.localTime()
 
-  -- Clean any older timers
-  if globals.timers.startWork then
-    print("Stopping existing timer")
-    globals.timers.startWork:stop()
-  end
+  clearTimers()
 
   if currentTime >= earliest then
     print("After " .. humanTime)
@@ -79,7 +97,11 @@ function start_work()
     print("Before earliest")
     local timer = hs.timer.doAt(earliest, start_delayed_apps)
     globals.timers.startWork = timer
-    print(timer)
+    printf("delayed app timer: %s", timer)
+
+    timer = hs.timer.doEvery(1, calculateCountdown)
+    globals.timers.startWorkMenu = timer
+    printf("menu timer: %s", timer)
 
     print("Adding menu Items")
     table.insert(menuItems, delayedAppsMenu)
