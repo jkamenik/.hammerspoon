@@ -11,17 +11,19 @@ Globals.timers = {}
 -- Preferred Apps
 Globals.apps.mail = "Mail"
 -- Globals.apps.mail = "Microsoft Outlook"
-Globals.apps.editor = "Atom"
+Globals.apps.editor  = "Atom"
+Globals.apps.term    = "iTerm"
 Globals.apps.browser = "Google Chrome"
-Globals.apps.todo = {}
-Globals.apps.todo.app_name = "Things3"
+Globals.apps.meeting = "Amazon Chime"
+
+Globals.apps.todo              = {}
+Globals.apps.todo.app_name     = "Things3"
 Globals.apps.todo.running_name = "Things"
 
-Globals.apps.messenger = {}
+Globals.apps.messenger          = {}
 Globals.apps.messenger.personal = "Messages"
-Globals.apps.messenger.work = "Slack"
+Globals.apps.messenger.work     = "Slack"
 
-Globals.apps.meeting = "Amazon Chime"
 
 
 -- ### Screen sizes ####
