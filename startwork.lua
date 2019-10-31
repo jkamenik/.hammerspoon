@@ -14,6 +14,7 @@ function start_work()
   start(globals.apps.messenger.work)
   start(globals.apps.browser)
   start(globals.apps.todo.app_name)
+  start(globals.apps.meeting)
 
   -- Jira to CRPI with "DevOps" filter selected.  Double escape the '\' so that '&' is escaped when sending to the terminal.
   -- open("https://opaqnetworks.atlassian.net/secure/RapidBoard.jspa?rapidView=35\\&quickFilter=99")

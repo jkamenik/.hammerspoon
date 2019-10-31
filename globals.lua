@@ -6,6 +6,7 @@ menu:setTitle('⚒')
 local Globals = {}
 
 Globals.apps = {}
+Globals.timers = {}
 
 -- Preferred Apps
 Globals.apps.mail = "Mail"
@@ -19,6 +20,8 @@ Globals.apps.todo.running_name = "Things"
 Globals.apps.messenger = {}
 Globals.apps.messenger.personal = "Messages"
 Globals.apps.messenger.work = "Slack"
+
+Globals.apps.meeting = "Amazon Chime"
 
 
 -- ### Screen sizes ####
