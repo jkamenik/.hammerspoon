@@ -16,10 +16,10 @@ menu       = hs.menubar.new()
 menuItems = {}
 
 globals   = require("globals")
+utils     = require("utils")
 local layouts   = require("layouts")
 local startwork = require("startwork")
 
 menu:setMenu(menuItems)
-
 
 hs.alert.show("Hammerspoon Config loaded")
