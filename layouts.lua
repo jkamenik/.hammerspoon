@@ -19,18 +19,19 @@ function layout_message_apps()
       -- Only one screen so split them full width but 1/2 height
       print("only 1 screen")
       layout = {
-         -- Outlook and Slack together, HipChat has a min size >half
+         -- Top Half
          {globals.apps.mail,  nil, screen, {x=0,y=0,  w=full,h=half},   nil, nil},
          {globals.apps.messenger.work,    nil, screen, {x=0,y=.52,w=full,h=0.48},  nil, nil},
-         -- Messages and Things together
+         -- Bottom Half
          {globals.apps.messenger.personal, nil, screen, {x=0,y=0,  w=full,h=half}, nil, nil},
          {globals.apps.todo.running_name, nil, screen, {x=0,y=mid,w=full,h=half},  nil, nil},
       }
    else
       -- Many screens, one should be large enough to show all
       layout = {
-         -- HipChat and Slack at the top
+         -- Mail and Slack at the top, w/ Chime over mail
          {globals.apps.mail,  nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
+         {globals.apps.meeting,  nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
          {globals.apps.messenger.work,    nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
          -- Messages and Things at the bottom
          {globals.apps.messenger.personal, nil, screen, {x=0,y=mid,w=half,h=half}, nil, nil},
