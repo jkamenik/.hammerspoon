@@ -13,7 +13,7 @@ Globals.apps.mail = "Mail"
 -- Globals.apps.mail = "Microsoft Outlook"
 Globals.apps.editor  = "Atom"
 Globals.apps.term    = "iTerm"
-Globals.apps.browser = "Google Chrome"
+Globals.apps.browser = "Firefox"
 Globals.apps.meeting = "Amazon Chime"
 
 Globals.apps.todo              = {}
