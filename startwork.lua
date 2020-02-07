@@ -80,6 +80,9 @@ function start_work()
 
   -- Jira DevOps Kanban baord spanning multiple projects.
   open("https://opaqnetworks.atlassian.net/secure/RapidBoard.jspa?rapidView=49\\&selectedIssue=CRPI-7532\\&quickFilter=134")
+  
+  -- Bitbucket PR list
+  open("https://bitbucket.org/dashboard/overview")
 
   -- Jira DSO main board.
   -- open("https://opaqnetworks.atlassian.net/secure/RapidBoard.jspa?rapidView=56")
