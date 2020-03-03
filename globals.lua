@@ -24,6 +24,7 @@ Globals.apps.messenger          = {}
 Globals.apps.messenger.personal = "Messages"
 Globals.apps.messenger.work     = "Slack"
 
+Globals.apps.calendar = "Calendar"
 
 
 -- ### Screen sizes ####

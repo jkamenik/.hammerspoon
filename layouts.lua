@@ -35,6 +35,7 @@ function layout_message_apps()
          {globals.apps.messenger.work,    nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
          -- Messages and Things at the bottom
          {globals.apps.messenger.personal, nil, screen, {x=0,y=mid,w=half,h=half}, nil, nil},
+         {globals.apps.calendar, nil, screen, {x=0,y=mid,w=half,h=half}, nil, nil},
          {globals.apps.todo.running_name, nil, screen, {x=mid,y=mid,w=half,h=half},  nil, nil},
       }
 
