@@ -35,13 +35,13 @@ function start_delayed_apps()
   remove_delay_menu()
 end
 
-local delayedAppsMenuTitleFormat = "Start Delayed Apps Now (will start in %ds)"
+local delayedAppsMenuTitleFormat = "Start Delayed Apps Now (will start in %s at %s)"
 local delayedAppsMenu = {
   title = "placeholder",
   fn    = start_delayed_apps
 }
 function delayedAppsMenu:updateTitle(s)
-  self.title = string.format("Start Delayed Apps Now (%ds remain until %s)", s, humanTime)
+  self.title = string.format(delayedAppsMenuTitleFormat, humanSeconds(s), humanTime)
 end
 
 function remove_delay_menu()
@@ -111,7 +111,7 @@ function start_work()
     table.insert(menuItems, delayedAppsMenu)
     menu:setMenu(menuItems)
 
-    local message = string.format("Delayed app will start after %s (approx. %ds)",humanTime, (earliest-currentTime))
+    local message = string.format("Delayed app will start after %s (%s)",humanTime, humanSeconds(earliest-currentTime))
     print(message)
     hs.alert.show(message)
   end
