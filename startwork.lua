@@ -73,8 +73,10 @@ function start_work()
   start(globals.apps.todo.app_name)
   start(globals.apps.calendar)
   start(globals.apps.meeting)
-  start(globals.apps.term)
-  start(globals.apps.editor)
+  -- start(globals.apps.term)
+  -- start(globals.apps.editor)
+  start(globals.apps.notes)
+  start(globals.apps.mail)
 
   -- Jira to CRPI with "DevOps" filter selected.  Double escape the '\' so that '&' is escaped when sending to the terminal.
   -- open("https://opaqnetworks.atlassian.net/secure/RapidBoard.jspa?rapidView=35\\&quickFilter=99")
@@ -89,32 +91,32 @@ function start_work()
   -- open("https://opaqnetworks.atlassian.net/secure/RapidBoard.jspa?rapidView=56")
 
   -- Now do some math, to figure out when to start delayed apps
-  print("--- Delay logic ---")
-  local currentTime = hs.timer.localTime()
+  -- print("--- Delay logic ---")
+  -- local currentTime = hs.timer.localTime()
 
-  clearTimers()
-
-  if currentTime >= earliest then
-    print("After " .. humanTime)
-    start_delayed_apps()
-  else
-    print("Before earliest")
-    local timer = hs.timer.doAt(earliest, start_delayed_apps)
-    globals.timers.startWork = timer
-    printf("delayed app timer: %s", timer)
-
-    timer = hs.timer.doEvery(1, calculateCountdown)
-    globals.timers.startWorkMenu = timer
-    printf("menu timer: %s", timer)
-
-    print("Adding menu Items")
-    table.insert(menuItems, delayedAppsMenu)
-    menu:setMenu(menuItems)
-
-    local message = string.format("Delayed app will start after %s (%s)",humanTime, humanSeconds(earliest-currentTime))
-    print(message)
-    hs.alert.show(message)
-  end
+  -- clearTimers()
+  -- 
+  -- if currentTime >= earliest then
+  --   print("After " .. humanTime)
+  --   start_delayed_apps()
+  -- else
+  --   print("Before earliest")
+  --   local timer = hs.timer.doAt(earliest, start_delayed_apps)
+  --   globals.timers.startWork = timer
+  --   printf("delayed app timer: %s", timer)
+  -- 
+  --   timer = hs.timer.doEvery(1, calculateCountdown)
+  --   globals.timers.startWorkMenu = timer
+  --   printf("menu timer: %s", timer)
+  -- 
+  --   print("Adding menu Items")
+  --   table.insert(menuItems, delayedAppsMenu)
+  --   menu:setMenu(menuItems)
+  -- 
+  --   local message = string.format("Delayed app will start after %s (%s)",humanTime, humanSeconds(earliest-currentTime))
+  --   print(message)
+  --   hs.alert.show(message)
+  -- end
 end
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "S", start_work)
