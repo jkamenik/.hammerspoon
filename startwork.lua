@@ -69,6 +69,7 @@ function start_work()
 
   start(globals.apps.messenger.personal)
   start(globals.apps.messenger.work)
+  start(globals.apps.messenger.work1)
   start(globals.apps.browser)
   start(globals.apps.todo.app_name)
   start(globals.apps.calendar)

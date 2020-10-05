@@ -24,6 +24,7 @@ Globals.apps.todo.running_name = "Things"
 Globals.apps.messenger          = {}
 Globals.apps.messenger.personal = "Messages"
 Globals.apps.messenger.work     = "Slack"
+Globals.apps.messenger.work1    = "Microsoft Teams"
 
 Globals.apps.calendar = "Calendar"
 
