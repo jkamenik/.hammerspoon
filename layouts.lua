@@ -26,19 +26,19 @@ function layout_message_apps()
          -- Bottom Half
          {globals.apps.messenger.personal, nil, screen, {x=0,y=0,  w=full,h=half}, nil, nil},
          {globals.apps.todo.running_name, nil, screen, {x=0,y=mid,w=full,h=half},  nil, nil},
-      }
+      } 
    else
       -- Many screens, one should be large enough to show all
       layout = {
-         -- Mail, Zoom, MS Teams, and Slack at the top, w/ Zoom over mail and Teams over Slack
-         {globals.apps.mail,  nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
-         {globals.apps.meeting,  nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
-         {globals.apps.messenger.work,    nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
-         {globals.apps.messenger.work1,    nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
+         -- Mail, Zoom, MS Teams, and Slack at the top, w/ Zoom, mail, and teams stacked
+         {globals.apps.messenger.work,     nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
+         {globals.apps.messenger.personal, nil, screen, {x=0,  y=0,w=half,h=half}, nil, nil},
+         {globals.apps.mail,               nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
+         {globals.apps.meeting,            nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
          -- Messages and Things at the bottom
-         {globals.apps.messenger.personal, nil, screen, {x=0,y=mid,w=half,h=half}, nil, nil},
-         {globals.apps.calendar, nil, screen, {x=0,y=mid,w=half,h=half}, nil, nil},
-         {globals.apps.todo.running_name, nil, screen, {x=mid,y=mid,w=half,h=half},  nil, nil},
+         {globals.apps.messenger.work1,     nil, screen, {x=0,y=mid,w=half,h=half},  nil, nil},
+         {globals.apps.calendar,           nil, screen, {x=0,y=mid,w=half,h=half}, nil, nil},
+         {globals.apps.todo.running_name,  nil, screen, {x=mid,y=mid,w=half,h=half},  nil, nil},
       }
 
    end

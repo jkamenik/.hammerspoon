@@ -11,11 +11,11 @@ Globals.timers = {}
 -- Preferred Apps
 Globals.apps.mail = "Mail"
 -- Globals.apps.mail = "Microsoft Outlook"
-Globals.apps.editor  = "Atom"
+Globals.apps.editor  = "Visual Studio Code"
 Globals.apps.term    = "iTerm"
 Globals.apps.browser = "Firefox"
 Globals.apps.meeting = "zoom.us"
-Globals.apps.notes   = "Bear"
+Globals.apps.notes   = "Notion"
 
 Globals.apps.todo              = {}
 Globals.apps.todo.app_name     = "Things3"

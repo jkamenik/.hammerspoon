@@ -73,20 +73,20 @@ function start_work()
   start(globals.apps.browser)
   start(globals.apps.todo.app_name)
   start(globals.apps.calendar)
-  start(globals.apps.meeting)
+  -- start(globals.apps.meeting)
   -- start(globals.apps.term)
-  -- start(globals.apps.editor)
+  start(globals.apps.editor)
   start(globals.apps.notes)
-  start(globals.apps.mail)
+  -- start(globals.apps.mail)
 
   -- Jira to CRPI with "DevOps" filter selected.  Double escape the '\' so that '&' is escaped when sending to the terminal.
   -- open("https://opaqnetworks.atlassian.net/secure/RapidBoard.jspa?rapidView=35\\&quickFilter=99")
 
   -- Jira DevOps Kanban baord spanning multiple projects.
-  open("https://opaqnetworks.atlassian.net/secure/RapidBoard.jspa?rapidView=49\\&selectedIssue=CRPI-7532\\&quickFilter=134")
+  --open("https://opaqnetworks.atlassian.net/secure/RapidBoard.jspa?rapidView=49\\&selectedIssue=CRPI-7532\\&quickFilter=134")
   
   -- Bitbucket PR list
-  open("https://bitbucket.org/dashboard/overview")
+  --open("https://bitbucket.org/dashboard/overview")
 
   -- Jira DSO main board.
   -- open("https://opaqnetworks.atlassian.net/secure/RapidBoard.jspa?rapidView=56")
