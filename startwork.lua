@@ -18,9 +18,9 @@ function start_work()
   start(globals.apps.todo.app_name)
   start(globals.apps.calendar)
   start(globals.apps.messenger.personal)
-  start(globals.apps.messenger.personal1)
+  -- start(globals.apps.messenger.personal1)
   start(globals.apps.messenger.work)
-  start(globals.apps.listening)
+  -- start(globals.apps.listening)
 
   -- critical bookmarks
   open("https://github.com/pulls/review-requested")
