@@ -4,6 +4,53 @@ function tablelength(T)
    return count
 end
 
+function screenDetails(screen)
+   local details = string.format(
+      "UUID: %s\nid: %s\nname: %s\nposition: %d, %d", 
+      screen:getUUID(), 
+      screen:id(), 
+      screen:name(),
+      screen:position()
+   )
+
+   return details
+end
+
+--- findScreenByPosition(x, y)
+--- Method
+--- Find a screen by position (relative to the primary screen).
+---
+--- 0, 0 = Primary screen
+--- Positive x = to the right of the Primary
+--- Negative x = to the left
+--- Positive y = below the primary screen
+--- Negative y = above
+---
+--- If no screen is found then hs.screen.mainScreen() is returned
+---
+--- Parameters:
+---  * x - The x position of the screen
+---  * y - The y position of the screen
+function findScreenByPosition(x, y)
+   -- if a better screen cannot be found then use main
+   local screen  = hs.screen.mainScreen()
+
+   for idx, s in ipairs(hs.screen.allScreens()) do
+      sx, sy = s:position()
+      print(string.format(
+         "looking for %d x %d\nfound %d x %d",
+         x, y,
+         sx, sy
+      ))
+
+      if x == sx and y == sy then
+         screen = s
+      end
+   end
+
+   return screen
+end
+
 function layout_message_apps()
    print('layout message apps')
 
@@ -12,7 +59,7 @@ function layout_message_apps()
    local mid  = 0.5
 
    local screens = tablelength(hs.screen.allScreens())
-   local screen  = hs.screen.mainScreen() -- the one with the mouse
+   local screen  = findScreenByPosition(1,-1) -- Upper right
    local layout  = {}
 
    if screens == 1 then
@@ -47,19 +94,5 @@ function layout_message_apps()
    hs.layout.apply(layout)
 end
 
-function layout_work_apps()
-   print('layout work apps')
-
-   local screen = hs.screen.mainScreen()
-   local layout = {
-      {"Emacs",  nil, screen, {x=0,y=0,w=.498,h=1},  nil,nil},
-      {"iTerm2", nil, screen, {x=.5,y=0,w=.498,h=1}, nil,nil}
-   }
-   hs.layout.apply(layout)
-end
-
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", layout_message_apps)
 table.insert(menuItems, {title = "Layout Messaging Apps\t\t⌘⌥⌃L", fn = layout_message_apps })
-
-hs.hotkey.bind({"cmd", "alt", "ctrl"}, "W", layout_work_apps)
-table.insert(menuItems, {title = "Layout Works Apps\t\t\t⌘⌥⌃W", fn = layout_work_apps })
