@@ -23,10 +23,10 @@ function start_work()
   -- start(globals.apps.listening)
 
   -- critical bookmarks
-  open("https://github.com/pulls/review-requested")
-  open("https://madvantage.atlassian.net/secure/RapidBoard.jspa?rapidView=129&assignee=60ee1fbef314ff006a5669e5")
-  open("https://madvantage.atlassian.net/jira/software/projects/MSVDSO/boards/274")
-  open("https://fireeye.okta.com")
+  -- open("https://github.com/pulls/review-requested")
+  -- open("https://madvantage.atlassian.net/secure/RapidBoard.jspa?rapidView=129&assignee=60ee1fbef314ff006a5669e5")
+  -- open("https://madvantage.atlassian.net/jira/software/projects/MSVDSO/boards/274")
+  -- open("https://fireeye.okta.com")
 
   -- Get the current date as a table
   date = os.date("*t")
