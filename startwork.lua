@@ -13,6 +13,7 @@ function start_work()
   local start = hs.application.launchOrFocus
 
   -- Start all the critical apps
+  start(globals.apps.selector)
   start(globals.apps.editor)
   start(globals.apps.browser)
   start(globals.apps.todo.app_name)
