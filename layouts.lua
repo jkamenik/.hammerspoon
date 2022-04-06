@@ -77,21 +77,52 @@ function layout_message_apps()
    else
       -- Many screens, one should be large enough to show all
       layout = {
-         -- Mail, Zoom, MS Teams, and Slack at the top, w/ Zoom, mail, and teams stacked
-         {globals.apps.messenger.work,     nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
+         ------ TOP ------
+         ---- Right ----
          {globals.apps.messenger.personal, nil, screen, {x=0,  y=0,w=half,h=half}, nil, nil},
          {globals.apps.mail,               nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
          {globals.apps.meeting,            nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
-         -- Messages and Things at the bottom
+         ---- Left ----
+         {globals.apps.messenger.work,     nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
+         {globals.apps.messenger.work1,    nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
+
+         ------ BOTTOM (Important) -----
+         ---- Right ----
          {globals.apps.messenger.personal1, nil, screen, {x=0,y=mid,w=half,h=half},  nil, nil},
          {globals.apps.calendar,            nil, screen, {x=0,y=mid,w=half,h=half}, nil, nil},
+         ---- Left ----
          {globals.apps.todo.running_name,   nil, screen, {x=mid,y=mid,w=half,h=half},  nil, nil},
-         {globals.apps.messenger.work1,     nil, screen, {x=mid,y=mid,w=half,h=half},  nil, nil},
       }
 
    end
 
    hs.layout.apply(layout)
+
+   focus_important_apps()
+end
+
+function focus_important_apps()
+   print("Focusing Important Apps")
+
+   important = {
+      globals.apps.messenger.personal,
+      globals.apps.messenger.work,
+      globals.apps.calendar,
+      globals.apps.todo.running_name,
+   }
+
+   for x = 1, #important do
+      appName = important[x]
+      app = hs.application.find(appName)
+      
+      print("Important App: ", appName, app)
+
+      if app == nil then
+         print(appName, "is not open, skipping")
+      else
+         app:activate(true)
+      end
+   end
 end
 
 hs.hotkey.bind({"cmd", "alt", "ctrl"}, "L", layout_message_apps)
