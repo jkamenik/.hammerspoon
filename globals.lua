@@ -9,7 +9,7 @@ Globals.apps = {}
 Globals.timers = {}
 
 -- Preferred Apps
-Globals.apps.selector = "Alfred 4"
+Globals.apps.selector = "Alfred 5"
 Globals.apps.mail = "Mail"
 -- Globals.apps.mail = "Microsoft Outlook"
 Globals.apps.editor  = "Visual Studio Code"
