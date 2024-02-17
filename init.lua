@@ -6,6 +6,22 @@ rc:start()
 -- print(x)
 -- print(pp.stringify(x))
 
+-- Load the windows manager
+local hyper = {"ctrl", "alt", "cmd"}
+hs.loadSpoon("MiroWindowsManager")
+
+hs.window.animationDuration = 0.3
+spoon.MiroWindowsManager.sizes = {1, 3/2, 2, 3} -- in 1/X units
+spoon.MiroWindowsManager:bindHotkeys({
+  up = {hyper, "up"},
+  right = {hyper, "right"},
+  down = {hyper, "down"},
+  left = {hyper, "left"},
+  fullscreen = {hyper, "f"},
+  nextscreen = {hyper, "n"}
+})
+
+
 -- Create a menu bar
 menu       = hs.menubar.new()
 menuItems = {}
