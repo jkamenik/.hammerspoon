@@ -14,9 +14,9 @@ Globals.apps.mail = "Mail"
 -- Globals.apps.mail = "Microsoft Outlook"
 Globals.apps.editor  = "Visual Studio Code"
 Globals.apps.term    = "iTerm"
-Globals.apps.browser = "Firefox"
+Globals.apps.browser = "Safari"
 Globals.apps.meeting = "zoom.us"
-Globals.apps.notes   = "Notion"
+Globals.apps.notes   = "Obsidian"
 
 Globals.apps.todo              = {}
 Globals.apps.todo.app_name     = "Things3"

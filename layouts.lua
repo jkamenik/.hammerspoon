@@ -6,9 +6,9 @@ end
 
 function screenDetails(screen)
    local details = string.format(
-      "UUID: %s\nid: %s\nname: %s\nposition: %d, %d", 
-      screen:getUUID(), 
-      screen:id(), 
+      "UUID: %s\nid: %s\nname: %s\nposition: %d, %d",
+      screen:getUUID(),
+      screen:id(),
       screen:name(),
       screen:position()
    )
@@ -73,22 +73,22 @@ function layout_message_apps()
          -- Bottom Half
          {globals.apps.messenger.personal, nil, screen, {x=0,y=0,  w=full,h=half}, nil, nil},
          {globals.apps.todo.running_name, nil, screen, {x=0,y=mid,w=full,h=half},  nil, nil},
-      } 
+      }
    else
       -- Many screens, one should be large enough to show all
       layout = {
          ------ TOP ------
          ---- Right ----
          {globals.apps.messenger.personal, nil, screen, {x=0,  y=0,w=half,h=half}, nil, nil},
-         {globals.apps.mail,               nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
-         {globals.apps.meeting,            nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
+         -- {globals.apps.mail,               nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
+         -- {globals.apps.meeting,            nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
          ---- Left ----
          {globals.apps.messenger.work,     nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
-         {globals.apps.messenger.work1,    nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
+         -- {globals.apps.messenger.work1,    nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
 
          ------ BOTTOM (Important) -----
          ---- Right ----
-         {globals.apps.messenger.personal1, nil, screen, {x=0,y=mid,w=half,h=half},  nil, nil},
+         -- {globals.apps.messenger.personal1, nil, screen, {x=0,y=mid,w=half,h=half},  nil, nil},
          {globals.apps.calendar,            nil, screen, {x=0,y=mid,w=half,h=half}, nil, nil},
          ---- Left ----
          {globals.apps.todo.running_name,   nil, screen, {x=mid,y=mid,w=half,h=half},  nil, nil},
@@ -114,7 +114,7 @@ function focus_important_apps()
    for x = 1, #important do
       appName = important[x]
       app = hs.application.find(appName)
-      
+
       print("Important App: ", appName, app)
 
       if app == nil then
