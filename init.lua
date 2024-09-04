@@ -21,6 +21,12 @@ spoon.MiroWindowsManager:bindHotkeys({
   nextscreen = {hyper, "n"}
 })
 
+-- load Emojis
+hs.loadSpoon("Emojis")
+spoon.Emojis:bindHotkeys({
+  toggle = {hyper, "e"}
+})
+
 
 -- Create a menu bar
 menu       = hs.menubar.new()
