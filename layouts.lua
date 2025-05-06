@@ -44,6 +44,7 @@ function findScreenByPosition(x, y)
       ))
 
       if x == sx and y == sy then
+         print("screen found")
          screen = s
       end
    end
@@ -57,38 +58,43 @@ function layout_message_apps()
    local full = 1.0
    local half = 0.498
    local mid  = 0.5
+   local firstThird = 1 / 3
+   local twoThirds  = 2 / 3
 
    local screens = tablelength(hs.screen.allScreens())
    local screen  = findScreenByPosition(1,-1) -- Upper right
    local layout  = {}
 
-   if screens == 1 then
-      -- Only one screen so split them full width but 1/2 height
+   local frame = screen:frame()
+
+   print(screen)
+   print(screen:frame())
+   print("size x ", frame.w)
+   print("size y ", frame.h)
+
+   -- 2025-05-06 14:20:18: size x 	1800.0
+   -- 2025-05-06 14:20:18: size y 	1125.0
+
+   if frame.w <= 1800 then
+      -- Small screen, stack
       print("only 1 screen")
       layout = {
-         -- Top Half
-         {globals.apps.mail,  nil, screen, {x=0,y=0,  w=full,h=half},   nil, nil},
-         {globals.apps.messenger.work,    nil, screen, {x=0,y=.52,w=full,h=0.48},  nil, nil},
-         {globals.apps.messenger.work1,    nil, screen, {x=0,y=.52,w=full,h=0.48},  nil, nil},
-         -- Bottom Half
-         {globals.apps.messenger.personal, nil, screen, {x=0,y=0,  w=full,h=half}, nil, nil},
-         {globals.apps.todo.running_name, nil, screen, {x=0,y=mid,w=full,h=half},  nil, nil},
+         {globals.apps.messenger.personal,nil, screen, {x=0,         y=0,         w=twoThirds,h=twoThirds}, nil, nil},
+         {globals.apps.messenger.work,    nil, screen, {x=firstThird,y=0,         w=twoThirds,h=twoThirds},  nil, nil},
+         {globals.apps.calendar,          nil, screen, {x=0,         y=firstThird,w=twoThirds,h=twoThirds}, nil, nil},
+         {globals.apps.todo.running_name, nil, screen, {x=firstThird,y=firstThird,w=twoThirds,h=twoThirds},  nil, nil},
       }
    else
-      -- Many screens, one should be large enough to show all
+      -- Large screen should be able to show them all
       layout = {
          ------ TOP ------
          ---- Right ----
          {globals.apps.messenger.personal, nil, screen, {x=0,  y=0,w=half,h=half}, nil, nil},
-         -- {globals.apps.mail,               nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
-         -- {globals.apps.meeting,            nil, screen, {x=0,  y=0,w=half,h=half},   nil, nil},
          ---- Left ----
          {globals.apps.messenger.work,     nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
-         -- {globals.apps.messenger.work1,    nil, screen, {x=mid,y=0,w=half,h=half},  nil, nil},
 
          ------ BOTTOM (Important) -----
          ---- Right ----
-         -- {globals.apps.messenger.personal1, nil, screen, {x=0,y=mid,w=half,h=half},  nil, nil},
          {globals.apps.calendar,            nil, screen, {x=0,y=mid,w=half,h=half}, nil, nil},
          ---- Left ----
          {globals.apps.todo.running_name,   nil, screen, {x=mid,y=mid,w=half,h=half},  nil, nil},
