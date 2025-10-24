@@ -1,2 +1,6 @@
 README.html
 .DS_STORE
+
+
+#Ignore cursor AI rules
+.cursor/rules/codacy.mdc
