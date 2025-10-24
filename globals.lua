@@ -32,6 +32,8 @@ Globals.apps.listening = "Podcasts"
 
 Globals.apps.calendar = "Calendar"
 
+Globals.apps.containers = "Docker"
+
 
 -- ### Screen sizes ####
 Globals.screen_size = {}

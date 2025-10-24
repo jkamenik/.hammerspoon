@@ -17,6 +17,7 @@ function start_work()
   start(globals.apps.calendar)
   start(globals.apps.messenger.personal)
   start(globals.apps.messenger.work)
+  start(globals.apps.containers)
 
   -- critical Webapps
   -- open("https://mail.google.com")
