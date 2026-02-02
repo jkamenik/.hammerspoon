@@ -19,8 +19,8 @@ Globals.apps.meeting = "zoom.us"
 Globals.apps.notes   = "Obsidian"
 
 Globals.apps.todo              = {}
-Globals.apps.todo.app_name     = "Things3"
-Globals.apps.todo.running_name = "Things"
+Globals.apps.todo.app_name     = "Reminders"
+Globals.apps.todo.running_name = "Reminders"
 
 Globals.apps.messenger          = {}
 Globals.apps.messenger.personal = "Messages"
