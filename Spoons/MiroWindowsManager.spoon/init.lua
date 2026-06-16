@@ -121,12 +121,24 @@ function obj:_nextFullScreenStep()
 end
 
 function obj:_moveNextScreenStep()
-  if hs.window.focusedWindow() then
-    local win = hs.window.frontmostWindow()
-    local id = win:id()
-    local screen = win:screen()
+  local win = hs.window.focusedWindow()
+  if not win then return end
 
-    win:move(win:frame():toUnitRect(screen:frame()), screen:next(), true, 0)
+  local screen = win:screen()
+  local nextScreen = screen:next()
+
+  if win:isFullScreen() then
+    -- macOS cannot move a native fullscreen window directly; exit, move, then re-enter.
+    win:setFullScreen(false)
+    hs.timer.doAfter(0.3, function()
+      if not win then return end
+      win:moveToScreen(nextScreen, false, true)
+      hs.timer.doAfter(0.6, function()
+        if win then win:setFullScreen(true) end
+      end)
+    end)
+  else
+    win:move(win:frame():toUnitRect(screen:frame()), nextScreen, true, 0)
   end
 end
 
